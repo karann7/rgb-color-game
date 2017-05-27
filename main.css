@@ -1,0 +1,26 @@
+body{
+  background-color: #33ffcc;
+}
+#greettext {
+  color: rgb(255, 43, 7);
+}
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+.square {
+  width: 30%;
+  background-color: purple;
+  padding-bottom: 30%;
+  float: left;
+  margin: 1.6%;
+  border-radius: 10%;
+}
+header {
+  margin: 0 auto;
+  text-align: center;
+}
+.copyright {
+  margin: 0 auto;
+  text-align: center;
+}
