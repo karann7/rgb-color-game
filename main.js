@@ -1,16 +1,16 @@
-// function greet(){
-// var name = prompt('What is your name?');
-// var textOutput = $('#greettext');
-// if(name === null){
-//   greet();
-// } else if(name.length > 3){
-//     textOutput.html(name);
-//   } else {
-//      alert('Name must be over three letters.');
-//     greet();
-//   }
-// }
-// greet();
+function greet(){
+var name = prompt('What is your name?');
+var textOutput = $('#greettext');
+if(name === null){
+  greet();
+} else if(name.length > 3){
+    textOutput.html(name);
+  } else {
+     alert('Name must be over three letters.');
+    greet();
+  }
+}
+greet();
 function randomColors() {
   var squareTracker = 6;
   var colors = generateRandomColors(squareTracker);

@@ -4,10 +4,11 @@ body{
   font-family: 'Montserrat','Avenir';
 }
 #greettext {
-  color: rgb(255, 43, 7);
+  color: inherit;
+  text-decoration: underline wavy;
 }
 .container {
-  max-width: 60%;
+  max-width: 800px;
   margin: 20px auto;
 }
 .square {
