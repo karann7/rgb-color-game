@@ -24,3 +24,12 @@ header {
   margin: 0 auto;
   text-align: center;
 }
+#stripe {
+  background: white;
+  height: 30px;
+  text-align: center;
+  color: black;
+}
+.selected {
+  background-color: #33ffcc;
+} 

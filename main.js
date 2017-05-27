@@ -12,11 +12,68 @@
 // }
 // greet();
 function randomColors() {
-  var colors = generateRandomColors(6);
+  var squareTracker = 6;
+  var colors = generateRandomColors(squareTracker);
   var squares = document.querySelectorAll('.square');
   var picked = pickedColor();
   var colorDisplay = document.getElementById('current');
+  var h1 = document.querySelector('h1');
   var messageDisplay = document.getElementById('message');
+  var resetButton = document.getElementById('reset');
+  var easyBtn = document.getElementById('easy');
+  var hardBtn = document.getElementById('hard');
+  easyBtn.addEventListener('click', function(){
+    easyBtn.classList.add('selected');
+    hardBtn.classList.remove('selected');
+    squareTracker = 3;
+    resetButton.textContent = 'New Colors';
+    colors = generateRandomColors(squareTracker);
+    picked = pickedColor();
+    //change the text that shows up in the color display
+    colorDisplay.innerHTML = '<h2>'+picked+'</h2>';
+    //change colors of squares
+    for(var i =0; i < squares.length; i++){
+  //add itial colors to the squares
+    if(colors[i]){
+    squares[i].style.backgroundColor = colors[i];
+    } else {
+      squares[i].style.display = "none";
+    }
+    }
+    h1.style.backgroundColor = '#33ffcc';
+  });
+  hardBtn.addEventListener('click', function(){
+    easyBtn.classList.remove('selected');
+    hardBtn.classList.add('selected');
+    squareTracker = 6;
+    resetButton.textContent = 'New Colors';
+    colors = generateRandomColors(squareTracker);
+    picked = pickedColor();
+    //change the text that shows up in the color display
+    colorDisplay.innerHTML = '<h2>'+picked+'</h2>';
+    //change colors of squares
+    for(var i =0; i < squares.length; i++){
+  //add itial colors to the squares
+    squares[i].style.backgroundColor = colors[i];
+    squares[i].style.display = "block";
+    }
+    h1.style.backgroundColor = '#33ffcc';
+  });
+  resetButton.addEventListener('click', function(){
+    resetButton.textContent = 'New Colors';
+    //generate all new colors
+    colors = generateRandomColors(squareTracker);
+    //pick a new random color from array
+    picked = pickedColor();
+    //change the text that shows up in the color display
+    colorDisplay.innerHTML = '<h2>'+picked+'</h2>';
+    //change colors of squares
+    for(var i =0; i < squares.length; i++){
+  //add itial colors to the squares
+    squares[i].style.backgroundColor = colors[i];
+    }
+    h1.style.backgroundColor = '#33ffcc'
+  });
   colorDisplay.innerHTML = '<h2>'+picked+'</h2>';
   for(var i =0; i < squares.length; i++){
     //add itial colors to the squares
@@ -27,8 +84,9 @@ function randomColors() {
       clickedColor = this.style.backgroundColor;
       if(clickedColor === picked) {
         messageDisplay.innerHTML = 'Correct!';
+        resetButton.textContent = 'Play again?';
         changeColors(clickedColor);
-        document.querySelector('h1').style.backgroundColor = clickedColor;
+        h1.style.backgroundColor = clickedColor;
       } else {
        this.style.backgroundColor = '#33ffcc';
        messageDisplay.innerHTML = 'Try Again!';
