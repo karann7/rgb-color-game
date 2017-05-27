@@ -14,15 +14,16 @@
 function randomColors() {
   var colors = [
     'rgb(255, 0, 0)',
-    'rgb(255, 2555, 0)',
+    'rgb(255, 255, 0)',
     'rgb(0, 255, 0)',
     'rgb(0, 0, 255)',
     'rgb(255, 0, 255)',
     'rgb(175, 0, 688)'
   ];
   var squares = document.querySelectorAll('.square');
-  var picked = colors[2];
+  var picked = pickedColor();
   var colorDisplay = document.getElementById('current');
+  var messageDisplay = document.getElementById('message');
   colorDisplay.innerHTML = '<h2>'+picked+'</h2>';
   for(var i =0; i < squares.length; i++){
     //add itial colors to the squares
@@ -32,12 +33,26 @@ function randomColors() {
       //grab color of clicked square
       clickedColor = this.style.backgroundColor;
       if(clickedColor === picked) {
-        alert('Correct!');
+        messageDisplay.innerHTML = 'Correct!';
+        changeColors(clickedColor);
       } else {
-        alert('Wrong!!!');
+       this.style.backgroundColor = '#33ffcc';
+       messageDisplay.innerHTML = 'Try Again!';
       }
     });
   }
+  function changeColors(color){
+  //loop through all the squares
+  for(var i = 0; i < squares.length; i++){
+    squares[i].style.backgroundColor = color;
+  }
+  //set the color to the right color
+  }
+  function pickedColor(){
+    var random = Math.floor(Math.random() * colors.length);
+    return colors[random];
+  }
 }
+
 
 randomColors();
