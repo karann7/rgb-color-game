@@ -4,7 +4,7 @@
 // if(name === null){
 //   greet();
 // } else if(name.length > 3){
-//     textOutput.html('Welcome to the game, ' + name);
+//     textOutput.html(name);
 //   } else {
 //      alert('Name must be over three letters.');
 //     greet();
@@ -30,7 +30,7 @@ function randomColors() {
     colors = generateRandomColors(squareTracker);
     picked = pickedColor();
     //change the text that shows up in the color display
-    colorDisplay.innerHTML = '<h2>'+picked+'</h2>';
+    colorDisplay.innerHTML = picked;
     //change colors of squares
     for(var i =0; i < squares.length; i++){
   //add itial colors to the squares
@@ -40,7 +40,8 @@ function randomColors() {
       squares[i].style.display = "none";
     }
     }
-    h1.style.backgroundColor = '#33ffcc';
+    h1.style.backgroundColor = 'steeleblue';
+    messageDisplay.innerHTML = '';
   });
   hardBtn.addEventListener('click', function(){
     easyBtn.classList.remove('selected');
@@ -50,14 +51,15 @@ function randomColors() {
     colors = generateRandomColors(squareTracker);
     picked = pickedColor();
     //change the text that shows up in the color display
-    colorDisplay.innerHTML = '<h2>'+picked+'</h2>';
+    colorDisplay.innerHTML = picked;
     //change colors of squares
     for(var i =0; i < squares.length; i++){
   //add itial colors to the squares
     squares[i].style.backgroundColor = colors[i];
     squares[i].style.display = "block";
     }
-    h1.style.backgroundColor = '#33ffcc';
+    h1.style.backgroundColor = 'steelblue';
+    messageDisplay.innerHTML = '';
   });
   resetButton.addEventListener('click', function(){
     resetButton.textContent = 'New Colors';
@@ -66,15 +68,16 @@ function randomColors() {
     //pick a new random color from array
     picked = pickedColor();
     //change the text that shows up in the color display
-    colorDisplay.innerHTML = '<h2>'+picked+'</h2>';
+    colorDisplay.innerHTML = picked;
     //change colors of squares
     for(var i =0; i < squares.length; i++){
   //add itial colors to the squares
     squares[i].style.backgroundColor = colors[i];
     }
-    h1.style.backgroundColor = '#33ffcc'
+    h1.style.backgroundColor = 'steelblue';
+    messageDisplay.innerHTML = '';
   });
-  colorDisplay.innerHTML = '<h2>'+picked+'</h2>';
+  colorDisplay.innerHTML = picked;
   for(var i =0; i < squares.length; i++){
     //add itial colors to the squares
     squares[i].style.backgroundColor = colors[i];
@@ -88,7 +91,7 @@ function randomColors() {
         changeColors(clickedColor);
         h1.style.backgroundColor = clickedColor;
       } else {
-       this.style.backgroundColor = '#33ffcc';
+       this.style.backgroundColor = '#232323';
        messageDisplay.innerHTML = 'Try Again!';
       }
     });
