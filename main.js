@@ -1,16 +1,16 @@
-// function greet(){
-// var name = prompt('What is your name?');
-// var textOutput = $('#greettext');
-// if(name === null){
-//   greet();
-// } else if(name.length > 3){
-//     textOutput.html(name);
-//   } else {
-//      alert('Name must be over three letters.');
-//     greet();
-//   }
-// }
-// greet();
+function greet(){
+var name = prompt('What is your name?');
+var textOutput = $('#greettext');
+if(name === null){
+  greet();
+} else if(name.length > 3){
+    textOutput.html(name);
+  } else {
+     alert('Name must be over three letters.');
+    greet();
+  }
+}
+greet();
 
 function randomColors() {
   var squareTracker = 6;
@@ -22,9 +22,7 @@ function randomColors() {
   var messageDisplay = document.getElementById('message');
   var resetButton = document.getElementById('reset');
   var modeButtons = document.querySelectorAll('.mode');
-
   init();
-
   function init(){
     setupButtons();
     setupSquares();
@@ -46,7 +44,6 @@ function randomColors() {
     reset();
     });
     }
-    resetButton.addEventListener('click', reset());
   }
   function setupSquares(){
     for(var i =0; i < squares.length; i++){
@@ -66,7 +63,6 @@ function randomColors() {
       });
     }
   }
-  
   function reset(){
     //generate all new colors
     colors = generateRandomColors(squareTracker);
@@ -89,7 +85,9 @@ function randomColors() {
     }
     h1.style.backgroundColor = 'steelblue';
   }
-
+  resetButton.addEventListener('click', function(){
+    reset();
+  });
   function changeColors(color){
     //loop through all the squares
     for(var i = 0; i < squares.length; i++){
